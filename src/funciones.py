@@ -1,23 +1,8 @@
-def calculo_puntos(Jugador):
-    kills = "kills"
-    for i in kills:
-        kills=i
-    assists = "assists"
-    for i in assists:
-        assists = i
-    deaths = "deaths"
-    for i in deaths:
-        deaths = i
-    return kills + assists + deaths
-
-def mvp (ronda):
-    puntuacion = 0
-    for nick in ronda:
-        if calculo_puntos(ronda[nick]) > puntuacion:
-            mvp = nick
-        
-
-
+def calculo_puntos(Jugador):    
+    kills = Jugador["kills"] 
+    assists = Jugador["assists"]
+    deaths = int(Jugador["deaths"])
+    return (kills*3) + assists - deaths
 
 
 def reiniciando_variables (puntos,kills,asistencias,muertes,mvps):
@@ -34,3 +19,11 @@ def recorrer_ordenando (jugador,lista):
         print(actual)
         # actual.split(puntos,kills,asistencias,muertes,mvps)
         print(actual)
+
+
+def ejercicio10(rounds):
+    for i in rounds:
+        ranking_ronda = []
+        jugador = {}
+        for y in range(4):
+            recorrer_ordenando(jugador,ranking_ronda)

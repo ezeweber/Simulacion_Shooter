@@ -1,23 +1,50 @@
 import funciones
 
+rounds = [
+ {
+ 'Shadow': {'kills': 2, 'assists': 1, 'deaths': True},
+ 'Blaze': {'kills': 1, 'assists': 0, 'deaths': False},
+ 'Viper': {'kills': 1, 'assists': 2, 'deaths': True},
+ 'Frost': {'kills': 0, 'assists': 1, 'deaths': False},
+ 'Reaper': {'kills': 1, 'assists': 1, 'deaths': False}
+ },
+ {
+ 'Shadow': {'kills': 0, 'assists': 2, 'deaths': False},
+ 'Blaze': {'kills': 2, 'assists': 0, 'deaths': True},
+ 'Viper': {'kills': 1, 'assists': 1, 'deaths': False},
+ 'Frost': {'kills': 2, 'assists': 1, 'deaths': True},
+ 'Reaper': {'kills': 0, 'assists': 1, 'deaths': False}
+ },
+ {
+ 'Shadow': {'kills': 1, 'assists': 0, 'deaths': False},
+ 'Blaze': {'kills': 2, 'assists': 2, 'deaths': True},
+ 'Viper': {'kills': 1, 'assists': 1, 'deaths': True},
+ 'Frost': {'kills': 0, 'assists': 1, 'deaths': False},
+ 'Reaper': {'kills': 1, 'assists': 1, 'deaths': False}
+ },
+ {
+ 'Shadow': {'kills': 2, 'assists': 1, 'deaths': False},
+ 'Blaze': {'kills': 1, 'assists': 0, 'deaths': True},
+ 'Viper': {'kills': 0, 'assists': 2, 'deaths': False},
+ 'Frost': {'kills': 1, 'assists': 1, 'deaths': True},
+ 'Reaper': {'kills': 1, 'assists': 1, 'deaths': False}
+ },
+ {
+ 'Shadow': {'kills': 1, 'assists': 2, 'deaths': True},
+ 'Blaze': {'kills': 0, 'assists': 1, 'deaths': False},
+ 'Viper': {'kills': 2, 'assists': 0, 'deaths': True},
+ 'Frost': {'kills': 1, 'assists': 1, 'deaths': False},
+ 'Reaper': {'kills': 1, 'assists': 1, 'deaths': True}
+ }
+ ]
 
-def ejercicio10(rounds):
-    for i in rounds:
-        ranking_ronda = []
-        jugador = {}
-        for y in range(4):
-            recorrer_ordenando(jugador,ranking_ronda)
+rondas = rounds.copy()
+mvps = {}
 
-def calculo_puntos(Jugador):    
-    kills = Jugador["kills"] 
-    assists = Jugador["assists"]
-    deaths = int(Jugador["deaths"])
-    return (kills*3) + assists - deaths
-    
 def mvp (ronda):
     puntuacion_max = -1
     for nick, stats in ronda.items():
-        puntos = calculo_puntos(stats)
+        puntos = funciones.calculo_puntos(stats)
         if puntos > puntuacion_max:
             puntuacion_max = puntos
             mvp = nick
@@ -25,18 +52,22 @@ def mvp (ronda):
         mvps[mvp] += 1 
     else:
         mvps[mvp] = 1
-    return mvp
+    return mvps
 
-def mvp2 (ronda):
-    puntuacion_max = -1
-    for nick, stats in ronda.items():
-        stats["puntos"] = calculo_puntos(stats)
-    # 2️⃣ Ordenar el diccionario de la ronda según los puntos (de mayor a menor)
-    ronda_ordenada = dict(sorted(ronda.items(), key=lambda item: item[1]["puntos"], reverse=True))
-    
+def simulacion_rondas(rondas):
+    for i in rondas:
+        mvps = mvp(i)
+    for i in mvps:
+        print(i)
 
+print(simulacion_rondas(rondas))
 
-
+# def mvp2 (ronda):
+#     puntuacion_max = -1
+#     for nick, stats in ronda.items():
+#         stats["puntos"] = calculo_puntos(stats)
+#     # 2️⃣ Ordenar el diccionario de la ronda según los puntos (de mayor a menor)
+#     ronda_ordenada = dict(sorted(ronda.items(), key=lambda item: item[1]["puntos"], reverse=True))
 # def score (ronda):
 #     puntuaciones = []
 #     puntuacion_max = -1
