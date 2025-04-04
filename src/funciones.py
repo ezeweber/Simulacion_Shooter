@@ -40,8 +40,9 @@ def sumatoria_datos(rondas):
         # ranking_lista.sort(reverse=True, key=[stats]["puntos"])
         # ranking = dict(ranking_lista)
         ranking = dict(sorted(ranking.items(), key=lambda item: item[1]["puntos"], reverse=True))
-        imprimir_ronda(ranking, ronda_act)
+        imprimir_rondas(ranking, ronda_act)
         ronda_act += 1
+    imprimir_ronda_final(ranking)
     return ranking
 
 def simulacion_rondas(rondas):
@@ -49,9 +50,13 @@ def simulacion_rondas(rondas):
         mvp_puntos(ronda) # fijarse arriba en el modulo que sucede cada vez que ejecuta
     sumatoria_datos(rondas)
 
-def imprimir_ronda(ranking, ronda_act):
+def imprimir_rondas(ranking, ronda_act):
     print(f"ranking ronda {ronda_act} :\n")
     for nick, stats in ranking.items():
         print(f"{nick}: {stats}")
-    print("\n")
-    
+    print("\n")   
+
+def imprimir_ronda_final (ranking):
+    print("ranking ronda final: \n")
+    for puesto, (nick, stats) in enumerate(ranking.items(), start=1):
+            print(f"{puesto}- {nick}: {stats}\n") 
