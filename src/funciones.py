@@ -25,6 +25,7 @@ def agregar_campos (rondas):
 
 def sumatoria_datos(rondas):
     ranking = {}
+    ronda_act = 1
     for ronda in rondas:
         for nick, stats in ronda.items():
             if nick not in ranking:
@@ -39,15 +40,18 @@ def sumatoria_datos(rondas):
         # ranking_lista.sort(reverse=True, key=[stats]["puntos"])
         # ranking = dict(ranking_lista)
         ranking = dict(sorted(ranking.items(), key=lambda item: item[1]["puntos"], reverse=True))
-        print("ranking ronda:\n", ronda)
-        for nick, stats in ranking.items():
-            print(f"{nick}: {stats}")
+        imprimir_ronda(ranking, ronda_act)
+        ronda_act += 1
     return ranking
 
 def simulacion_rondas(rondas):
     for ronda in rondas:
-        mvp_puntos(ronda) # me devuelve rondas con sus 
+        mvp_puntos(ronda) # fijarse arriba en el modulo que sucede cada vez que ejecuta
     sumatoria_datos(rondas)
 
-# def imprimir_ronda(ronda):
+def imprimir_ronda(ranking, ronda_act):
+    print(f"ranking ronda {ronda_act} :\n")
+    for nick, stats in ranking.items():
+        print(f"{nick}: {stats}")
+    print("\n")
     
