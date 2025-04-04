@@ -11,24 +11,24 @@ EJECUTANDO EL PROGRAMA
 
 Luego de instalar vs code y python, abrir la aplicacion visual studio code y en file abrir la carpeta descomprimida del proyecto. Antes de visualizar las carpetas y sus contenidos debemos crear un entorno virtual para correr el programa luego. Para ello por medio del comando de teclado: CONTROL(ctrl) + SHIFT(flecha hacia arriba) + P (PULSAR AL MISMO TIEMPO) Esto abrira una ventana de busqueda donde pondremos: Create new Terminal y pulsamos enter. En esta terminal que abrimos copiar y pegar esta linea a ejecutar:
 
-python -m venv venv
+```python -m venv venv```
 
 Esto creara una carpeta donde vamos a almacenar las librerias necesarias para visualizar el programa. Una vez creada se ACTIVA con el siguiente comando en la terminal:
 
 (si su sistema operativo es windows) 
-venv/Scripts/activate
+```venv/Scripts/activate```
 (si es linux o mac)
-venv/bin/activate
+```venv/bin/activate```
 
 Y para desactivarlo: (una vez ya probado el programa y antes de cerrar todo, se recomienda hacerlo)
 
-venv/Scripts/deactivate o venv/bin/deactivate
+```venv/Scripts/deactivate``` O ```venv/bin/deactivate```
 
 REQUIREMENTS
 
 Entre los archivos se encuentra requirements(requerimientos) a instalar para que todo funcione correctamente dentro de nuestro entorno virtual creado. Para esto en consola se debe escribir lo siguiente
 
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 EJECUCION DEL PROGRAMA
 
