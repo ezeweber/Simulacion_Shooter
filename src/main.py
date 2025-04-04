@@ -42,4 +42,4 @@ rondas = rounds.copy()
 
 rondas = funciones.agregar_campos(rondas)
 
-print(funciones.simulacion_rondas(rondas))
+funciones.simulacion_rondas(rondas)
