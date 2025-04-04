@@ -28,7 +28,7 @@ REQUIREMENTS
 
 Entre los archivos se encuentra requirements(requerimientos) a instalar para que todo funcione correctamente dentro de nuestro entorno virtual creado. Para esto en consola se debe escribir lo siguiente
 
-pip install requirements.txt
+pip install -r requirements.txt
 
 EJECUCION DEL PROGRAMA
 
